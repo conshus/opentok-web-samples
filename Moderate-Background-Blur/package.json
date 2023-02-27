@@ -1,5 +1,5 @@
 {
-  "name": "basic-background-blur",
+  "name": "moderate-background-blur",
   "version": "1.0.0",
   "description": "This sample application shows how to add background blur",
   "main": "index.js",
@@ -19,6 +19,6 @@
   ],
   "license": "ISC",
   "dependencies": {
-    "@vonage/ml-transformers": "^3.2.0"
+    "@vonage/ml-transformers": "^4.3.6"
   }
 }

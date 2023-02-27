@@ -1,6 +1,8 @@
 body, html {
+    font-family: Helvetica, Arial, sans-serif;
     background-color: gray;
     height: 100%;
+    margin: 0px;
 }
 #videos {
     position: relative;
@@ -17,26 +19,26 @@ body, html {
     height: 100%;
     z-index: 10;
 }
-#publisher {
+#publisher-container {
     position: absolute;
-    width: 360px;
-    height: 240px;
-    bottom: 30px;
+    /*width: 360px;*/
+    /*height: 240px;*/
+    bottom: 10px;
     left: 10px;
     z-index: 100;
     border: 3px solid white;
     border-radius: 3px;
 }
-#buttonHolder {
-    position: absolute;
-    width: 70%;
-    margin-left: auto;
-    margin-right: auto;
-    bottom: 2px;
-    left: 20px;
-    z-index: 200;
+
+div.wrapper label {
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
 }
-#archiveLink > a {
-    padding: 5px;
-    background-color: white;
+div.wrapper {
+    width: 320px;
+    float: left;
+    margin: 20px;
 }

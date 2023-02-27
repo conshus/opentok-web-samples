@@ -1,5 +1,7 @@
-import { MediaProcessorConnector } from '../node_modules/@vonage/media-processor/dist/media-processor.es.js';
-import { WorkerMediaProcessor } from './worker-media-processor.js';
+import {
+  BlurRadius,
+  createVonageMediaProcessor
+} from '../node_modules/@vonage/ml-transformers/dist/ml-transformers.es.js';
 /* global OT API_KEY TOKEN SESSION_ID SAMPLE_SERVER_BASE_URL */
 /* global MediaProcessorConnector */
 
@@ -7,13 +9,17 @@ let apiKey;
 let sessionId;
 let token;
 
-const transformStream = (publisher) => {
-  const mediaProcessor = new WorkerMediaProcessor();
-  const mediaProcessorConnector = new MediaProcessorConnector(mediaProcessor);
+const config = {
+  transformerType: 'BackgroundBlur',
+  radius: BlurRadius.High
+};
+
+const transformStream = async (publisher) => {
+  const processor = await createVonageMediaProcessor(config);
 
   if (OT.hasMediaProcessorSupport()) {
     publisher
-      .setAudioMediaProcessorConnector(mediaProcessorConnector)
+      .setVideoMediaProcessorConnector(processor.getConnector())
       .catch((e) => {
         console.error(e);
       });
